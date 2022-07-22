@@ -1,2 +1,3 @@
-# Controle-de-Gastos
-Sistema de controle de gastos pessoais.
+# Controle de Gastos
+
+	Sistema de controle de gastos pessoais.
