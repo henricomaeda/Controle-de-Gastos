@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmRead.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRead.Designer.cs">
+      <DependentUpon>FrmRead.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCreate.Designer.cs">
+      <DependentUpon>FrmCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,8 +66,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCreate.resx">
+      <DependentUpon>FrmCreate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRead.resx">
+      <DependentUpon>FrmRead.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
