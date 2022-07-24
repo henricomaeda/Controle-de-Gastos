@@ -101,5 +101,26 @@
   <ItemGroup>
     <None Include="Resources\Logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Balance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Date.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Create.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Read.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Leave.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

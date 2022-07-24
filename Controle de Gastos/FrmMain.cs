@@ -26,17 +26,5 @@ namespace Controle_de_Gastos
         {
             Application.ExitThread();
         }
-
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            var t = "Você tem certeza que deseja finalizar?";
-            var c = "";
-            var b = MessageBoxButtons.YesNo;
-            var i = MessageBoxIcon.Question;
-
-            DialogResult r = MessageBox.Show(t, c, b, i);
-            if (r == DialogResult.Yes) BtnLeave_Click(null, e);
-            else e.Cancel = true;
-        }
     }
 }
