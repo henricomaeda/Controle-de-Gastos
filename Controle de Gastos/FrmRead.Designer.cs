@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRead));
             this.DgvSpending = new System.Windows.Forms.DataGridView();
             this.CmbCategory = new System.Windows.Forms.ComboBox();
@@ -38,6 +41,15 @@
             this.BtnBalance = new System.Windows.Forms.Button();
             this.BtnReturn = new System.Windows.Forms.Button();
             this.PicLogo = new System.Windows.Forms.PictureBox();
+            this.Column_00 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column_01 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_02 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_03 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_04 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_05 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_06 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_07 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column_08 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvSpending)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.SuspendLayout();
@@ -48,18 +60,52 @@
             this.DgvSpending.AllowUserToDeleteRows = false;
             this.DgvSpending.AllowUserToResizeColumns = false;
             this.DgvSpending.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            this.DgvSpending.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvSpending.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.DgvSpending.BackgroundColor = System.Drawing.Color.Silver;
             this.DgvSpending.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DgvSpending.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.DgvSpending.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvSpending.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DgvSpending.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvSpending.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DgvSpending.ColumnHeadersHeight = 50;
+            this.DgvSpending.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DgvSpending.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column_00,
+            this.Column_01,
+            this.Column_02,
+            this.Column_03,
+            this.Column_04,
+            this.Column_05,
+            this.Column_06,
+            this.Column_07,
+            this.Column_08});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvSpending.DefaultCellStyle = dataGridViewCellStyle3;
             this.DgvSpending.EnableHeadersVisualStyles = false;
             this.DgvSpending.Location = new System.Drawing.Point(22, 207);
             this.DgvSpending.MultiSelect = false;
             this.DgvSpending.Name = "DgvSpending";
             this.DgvSpending.ReadOnly = true;
             this.DgvSpending.RowHeadersVisible = false;
+            this.DgvSpending.RowTemplate.Height = 40;
+            this.DgvSpending.RowTemplate.ReadOnly = true;
+            this.DgvSpending.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvSpending.Size = new System.Drawing.Size(946, 366);
             this.DgvSpending.TabIndex = 1;
             // 
@@ -189,6 +235,101 @@
             this.PicLogo.TabIndex = 0;
             this.PicLogo.TabStop = false;
             // 
+            // Column_00
+            // 
+            this.Column_00.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column_00.FillWeight = 91.37056F;
+            this.Column_00.HeaderText = "";
+            this.Column_00.Image = global::Controle_de_Gastos.Properties.Resources.Unpaid;
+            this.Column_00.Name = "Column_00";
+            this.Column_00.ReadOnly = true;
+            this.Column_00.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column_00.Width = 40;
+            // 
+            // Column_01
+            // 
+            this.Column_01.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column_01.HeaderText = "Identificador";
+            this.Column_01.Name = "Column_01";
+            this.Column_01.ReadOnly = true;
+            this.Column_01.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column_01.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column_01.Visible = false;
+            // 
+            // Column_02
+            // 
+            this.Column_02.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column_02.FillWeight = 101.7259F;
+            this.Column_02.HeaderText = "Data";
+            this.Column_02.Name = "Column_02";
+            this.Column_02.ReadOnly = true;
+            this.Column_02.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column_02.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column_02.Width = 53;
+            // 
+            // Column_03
+            // 
+            this.Column_03.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column_03.FillWeight = 101.7259F;
+            this.Column_03.HeaderText = "Despesa";
+            this.Column_03.Name = "Column_03";
+            this.Column_03.ReadOnly = true;
+            this.Column_03.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column_03.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column_03.Width = 91;
+            // 
+            // Column_04
+            // 
+            this.Column_04.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column_04.FillWeight = 101.7259F;
+            this.Column_04.HeaderText = "Pagamento";
+            this.Column_04.Name = "Column_04";
+            this.Column_04.ReadOnly = true;
+            this.Column_04.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column_04.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column_04.Width = 111;
+            // 
+            // Column_05
+            // 
+            this.Column_05.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column_05.FillWeight = 101.7259F;
+            this.Column_05.HeaderText = "Informação";
+            this.Column_05.Name = "Column_05";
+            this.Column_05.ReadOnly = true;
+            this.Column_05.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column_05.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Column_06
+            // 
+            this.Column_06.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column_06.FillWeight = 101.7259F;
+            this.Column_06.HeaderText = "Valor";
+            this.Column_06.Name = "Column_06";
+            this.Column_06.ReadOnly = true;
+            this.Column_06.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column_06.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column_06.Width = 57;
+            // 
+            // Column_07
+            // 
+            this.Column_07.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column_07.HeaderText = "";
+            this.Column_07.Image = global::Controle_de_Gastos.Properties.Resources.Change;
+            this.Column_07.Name = "Column_07";
+            this.Column_07.ReadOnly = true;
+            this.Column_07.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column_07.Width = 40;
+            // 
+            // Column_08
+            // 
+            this.Column_08.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column_08.HeaderText = "";
+            this.Column_08.Image = global::Controle_de_Gastos.Properties.Resources.Delete;
+            this.Column_08.Name = "Column_08";
+            this.Column_08.ReadOnly = true;
+            this.Column_08.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column_08.Width = 40;
+            // 
             // FrmRead
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,5 +367,14 @@
         private System.Windows.Forms.Button BtnBalance;
         private System.Windows.Forms.Button BtnSpent;
         private System.Windows.Forms.Button BtnDate;
+        private System.Windows.Forms.DataGridViewImageColumn Column_00;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_01;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_02;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_03;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_04;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_05;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_06;
+        private System.Windows.Forms.DataGridViewImageColumn Column_07;
+        private System.Windows.Forms.DataGridViewImageColumn Column_08;
     }
 }

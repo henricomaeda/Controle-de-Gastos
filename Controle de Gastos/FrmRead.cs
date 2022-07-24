@@ -23,6 +23,9 @@ namespace Controle_de_Gastos
 
             CmbCategory.SelectedIndex = 0;
             PicLogo.Select();
+            DgvSpending.Rows.Add(null, 0, DateTime.Now.ToString("dd/MMMM/yyyy"), "Mercado", "Cartão de crédito", "Nenhuma.", "R$ 1.500,00");
+            DgvSpending.Rows.Add(null, 1, DateTime.Now.ToString("dd/MMMM/yyyy"), "Conta da luz", "Dinheiro", "Nenhuma.", "R$ 900,00");
+            DgvSpending.ClearSelection();
         }
 
         private void FrmRead_Load(object sender, EventArgs e)
@@ -69,7 +72,7 @@ namespace Controle_de_Gastos
                 var m = CmbCategory.Text;
 
                 if (CmbCategory.SelectedIndex == 0) t = "Você gastou R$ " + string.Format("{0:#,##0.00}", spent) + " durante o ano.";
-                else t = "Você gastou R$ " + s + " em " + m + '.';
+                else t = "Você gastou R$ " + s + " em " + m.ToLower() + '.';
             }
             else if (sender == BtnDate) t = "Utilize-o para visualizar os gastos por mês.";
 

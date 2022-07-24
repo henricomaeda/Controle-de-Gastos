@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Data.cs" />
     <Compile Include="FrmRead.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +122,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Leave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unpaid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Paid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Change.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
