@@ -8,13 +8,20 @@ namespace Controle_de_Gastos.Classes
 {
     internal class Data
     {
+        private static int selected_id = -1;
         private static int[] id;
         private static bool[] paid;
         private static DateTime[] date;
         private static string[] expense;
         private static string[] payment;
-        private static string[] information;
-        private static float[] cost;
+        private static string[] comments;
+        private static float[] balance;
+
+        public static int SelectedId
+        {
+            get { return selected_id; }
+            set { selected_id = value; }
+        }
 
         public static int[] Id
         {
@@ -46,16 +53,16 @@ namespace Controle_de_Gastos.Classes
             set { payment = value; }
         }
 
-        public static string[] Information
+        public static string[] Comments
         {
-            get { return information; }
-            set { information = value; }
+            get { return comments; }
+            set { comments = value; }
         }
 
-        public static float[] Cost
+        public static float[] Balance
         {
-            get { return cost; }
-            set { cost = value; }
+            get { return balance; }
+            set { balance = value; }
         }
     }
 }

@@ -36,6 +36,9 @@
             this.CmbCategory = new System.Windows.Forms.ComboBox();
             this.TxtSpent = new System.Windows.Forms.TextBox();
             this.TxtBalance = new System.Windows.Forms.TextBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.BtnDate = new System.Windows.Forms.Button();
             this.BtnSpent = new System.Windows.Forms.Button();
             this.BtnBalance = new System.Windows.Forms.Button();
@@ -156,6 +159,37 @@
             this.TxtBalance.Size = new System.Drawing.Size(207, 35);
             this.TxtBalance.TabIndex = 9;
             this.TxtBalance.Text = "0";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn1.FillWeight = 91.37056F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::Controle_de_Gastos.Properties.Resources.Unpaid;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn1.Width = 40;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::Controle_de_Gastos.Properties.Resources.Change;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn2.Width = 40;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn3.HeaderText = "";
+            this.dataGridViewImageColumn3.Image = global::Controle_de_Gastos.Properties.Resources.Delete;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.ReadOnly = true;
+            this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn3.Width = 40;
             // 
             // BtnDate
             // 
@@ -293,7 +327,7 @@
             // 
             this.Column_05.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column_05.FillWeight = 101.7259F;
-            this.Column_05.HeaderText = "Informação";
+            this.Column_05.HeaderText = "Observações";
             this.Column_05.Name = "Column_05";
             this.Column_05.ReadOnly = true;
             this.Column_05.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -376,5 +410,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_06;
         private System.Windows.Forms.DataGridViewImageColumn Column_07;
         private System.Windows.Forms.DataGridViewImageColumn Column_08;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
     }
 }
