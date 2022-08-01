@@ -18,14 +18,14 @@ namespace Controle_de_Gastos
         public FrmRead()
         {
             InitializeComponent();
-            TxtBalance.Text = "R$ " + string.Format("{0:#,##0.00}", balance);
-            TxtSpent.Text = "R$ " + string.Format("{0:#,##0.00}", spent);
-
             CmbCategory.SelectedIndex = 0;
-            PicLogo.Select();
+
+            TxtSpent.Text = "R$ " + string.Format("{0:#,##0.00}", spent);
+            TxtBalance.Text = "R$ " + string.Format("{0:#,##0.00}", balance);
             DgvSpending.Rows.Add(null, 0, DateTime.Now.ToString("dd/MMMM/yyyy"), "Mercado", "Cartão de crédito", "Nenhuma.", "R$ 1.500,00");
             DgvSpending.Rows.Add(null, 1, DateTime.Now.ToString("dd/MMMM/yyyy"), "Conta da luz", "Dinheiro", "Nenhuma.", "R$ 900,00");
             DgvSpending.ClearSelection();
+            PicLogo.Select();
         }
 
         private void FrmRead_Load(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace Controle_de_Gastos
                 var i = MessageBoxIcon.Error;
 
                 MessageBox.Show(t, c, b, i);
-                TxtBalance.Text = string.Format("{0:#,##0.00}", balance);
+                TxtBalance.Text = "R$ " + string.Format("{0:#,##0.00}", balance);
             }
         }
 

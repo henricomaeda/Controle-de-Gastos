@@ -12,54 +12,122 @@ namespace Controle_de_Gastos
 {
     public partial class FrmCreate : Form
     {
-        private float balance = 0;
+        private double price = 0;
+        private readonly string placeholder = "Exemplos: conta de luz, lâmpada, TV etc.";
 
         public FrmCreate()
         {
             InitializeComponent();
-            TxtBalance.Text = "R$ " + string.Format("{0:#,##0.00}", balance);
-            PicLogo.Select();
-        }
-
-        private void FrmCreate_Load(object sender, EventArgs e)
-        {
             int i = Classes.Data.SelectedId;
+
             if (i != -1)
             {
-                balance = Classes.Data.Balance[i];
-
+                if (Classes.Data.Paid[i]) RdoPaid.Checked = true;
                 DtpDate.Value = Classes.Data.Date[i];
                 TxtExpense.Text = Classes.Data.Expense[i];
                 TxtPayment.Text = Classes.Data.Payment[i];
                 TxtComments.Text = Classes.Data.Comments[i];
-                TxtBalance.Text = "R$ " + string.Format("{0:#,##0.00}", balance);
-                if (Classes.Data.Paid[i]) RdoPaid.Checked = true;
+                price = Classes.Data.Price[i];
 
                 TxtBalance.Enabled = false;
                 RdoPaid.Enabled = false;
                 BtnCreate.Enabled = false;
                 BtnUpdate.Enabled = true;
             }
+
+            PicLogo.Select();
+        }
+
+        private void FrmCreate_Load(object sender, EventArgs e)
+        {
+            TxtBalance.Text = "R$ " + string.Format("{0:#,##0.00}", price);
+            TxtBalance.GotFocus += new EventHandler(TxtBalance_GotFocus);
+            TxtBalance.LostFocus += new EventHandler(TxtBalance_LostFocus);
+
+            TxtExpense_LostFocus(TxtExpense, null);
+            TxtExpense.GotFocus += new EventHandler(TxtExpense_GotFocus);
+            TxtExpense.LostFocus += new EventHandler(TxtExpense_LostFocus);
+        }
+
+        private void TxtBalance_GotFocus(object sender, EventArgs e)
+        {
+            TxtBalance.Text = string.Format("{0:#,##0.00}", price);
+        }
+
+        private void TxtBalance_LostFocus(object sender, EventArgs e)
+        {
+            try
+            {
+                price = double.Parse(TxtBalance.Text);
+            }
+            catch (Exception ex)
+            {
+                var t = "ERRO: " + ex.Message;
+                var c = "";
+                var b = MessageBoxButtons.OK;
+                var i = MessageBoxIcon.Error;
+
+                MessageBox.Show(t, c, b, i);
+            }
+
+            TxtBalance.Text = "R$ " + string.Format("{0:#,##0.00}", price);
+        }
+
+        private void TxtExpense_GotFocus(object sender, EventArgs e)
+        {
+            if (TxtExpense.Text == placeholder)
+            {
+                TxtExpense.Text = string.Empty;
+                TxtExpense.ForeColor = Color.Black;
+            }
+        }
+
+        private void TxtExpense_LostFocus(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TxtExpense.Text))
+            {
+                TxtExpense.Text = placeholder;
+                TxtExpense.ForeColor = Color.Gray;
+            }
         }
 
         private void BtnCreateAndUpdate_Click(object sender, EventArgs e)
         {
+            var paid = RdoPaid.Checked;
             var date = DtpDate.Value;
             var expense = TxtExpense.Text;
             var payment = TxtPayment.Text;
             var comments = TxtComments.Text;
-            var paid = RdoPaid.Checked;
 
-            var t = "Por favor, preencha todos os campos obrigatórios.\n\nOs campos obrigatórios, geralmente, se identificam com *";
-            var c = "";
+            if (expense == placeholder) expense = string.Empty;
+            if (string.IsNullOrWhiteSpace(payment)) payment = string.Empty;
+            if (string.IsNullOrWhiteSpace(comments)) comments = string.Empty;
+
+            var t = string.Empty;
+            var c = string.Empty;
             var b = MessageBoxButtons.OK;
             var i = MessageBoxIcon.Warning;
 
-            if (string.IsNullOrWhiteSpace(expense)) MessageBox.Show(t, c, b, i);
-            else if (balance < 0.01)
+            if (expense == string.Empty)
             {
-                t = "O valor do produto ou serviço deve ser maior que R$ 0,00.";
+                t = "Por favor, preencha o campo de descrição da despesa.";
                 MessageBox.Show(t, c, b, i);
+            }
+            else if (price <= 0.00)
+            {
+                t = "O preço do produto ou serviço deve ser maior que R$ 0,00.";
+                MessageBox.Show(t, c, b, i);
+            }
+            else
+            {
+                if (sender == BtnCreate) t = Classes.Data.Create(paid, date, expense, payment, comments, price);
+                else if (sender == BtnUpdate) t = Classes.Data.Update(paid, date, expense, payment, comments, price);
+
+                if (t != string.Empty) i = MessageBoxIcon.Information;
+                MessageBox.Show(t, c, b, i);
+
+                Classes.Data.SelectedId = -1;
+                BtnReturn_Click(sender, e);
             }
         }
 
