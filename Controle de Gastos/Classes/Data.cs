@@ -117,6 +117,7 @@ namespace Controle_de_Gastos.Classes
                 if (paid) balance -= price;
                 var currentBalance = "R$ " + string.Format("{0:#,##0.00}", balance);
 
+                File.Save();
                 return "Despesa criada com sucesso!\n\nSaldo anterior: " + oldBalance + "\nSaldo atual: " + currentBalance;
             }
             catch (Exception exception)
@@ -136,6 +137,7 @@ namespace Controle_de_Gastos.Classes
                 Comments[SelectedId] = c;
                 Price[SelectedId] = price;
 
+                File.Save();
                 return "Despesa atualizada com sucesso!";
             }
             catch (Exception exception)
@@ -191,6 +193,7 @@ namespace Controle_de_Gastos.Classes
                     Price = priceList.ToArray();
                 }
 
+                File.Save();
                 return "Despesa removida com sucesso!";
             }
             catch (Exception exception)

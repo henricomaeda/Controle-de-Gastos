@@ -80,6 +80,8 @@ namespace Controle_de_Gastos
                 MessageBox.Show(t, c, b, i);
                 TxtBalance.Text = "R$ " + string.Format("{0:#,##0.00}", Classes.Data.Balance);
             }
+
+            Classes.File.Save();
         }
 
         private void BtnBalanceAndSpentAndDate_Click(object sender, EventArgs e)

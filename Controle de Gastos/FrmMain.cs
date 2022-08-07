@@ -8,6 +8,7 @@ namespace Controle_de_Gastos
         public FrmMain()
         {
             InitializeComponent();
+            Classes.File.Load();
             PicLogo.Select();
         }
 
