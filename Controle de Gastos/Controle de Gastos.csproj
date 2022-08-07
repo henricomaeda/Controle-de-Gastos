@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Code.cs" />
     <Compile Include="Classes\File.cs" />
     <Compile Include="Classes\Data.cs" />
     <Compile Include="FrmRead.cs">
