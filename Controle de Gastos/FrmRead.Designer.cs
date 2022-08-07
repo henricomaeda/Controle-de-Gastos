@@ -96,7 +96,7 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGray;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DgvSpending.DefaultCellStyle = dataGridViewCellStyle3;
@@ -111,6 +111,7 @@
             this.DgvSpending.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvSpending.Size = new System.Drawing.Size(946, 366);
             this.DgvSpending.TabIndex = 1;
+            this.DgvSpending.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvSpending_CellClick);
             // 
             // Column_00
             // 

@@ -37,6 +37,13 @@ namespace Controle_de_Gastos.Classes
 
                 writer.Close();
             }
+
+            if (Data.Balance != 0)
+            {
+                StreamWriter writer = new StreamWriter(path + "balance.db");
+                writer.WriteLine(Code.Encrypt(Data.Balance.ToString()));
+                writer.Close();
+            }
         }
 
         public static void Load()
@@ -86,6 +93,14 @@ namespace Controle_de_Gastos.Classes
                 Data.Comments = commentsList.ToArray();
                 Data.Price = priceList.ToArray();
 
+                reader.Close();
+            }
+
+
+            if (System.IO.File.Exists(path + "balance.db") && new FileInfo(path + "balance.db").Length != 0)
+            {
+                StreamReader reader = new StreamReader(path + "balance.db");
+                Data.Balance = double.Parse(Code.Decrypt(reader.ReadLine()));
                 reader.Close();
             }
         }

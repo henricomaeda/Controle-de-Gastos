@@ -32,25 +32,47 @@ namespace Controle_de_Gastos
             {
                 for (int i = 0; i < Classes.Data.Id.Length; i++)
                 {
-                    var paid = Properties.Resources.Paid;
-                    var date = Classes.Data.Date[i];
-                    var expense = Classes.Data.Expense[i];
-                    var payment = Classes.Data.Payment[i];
-                    var comments = Classes.Data.Comments[i];
-                    var price = Classes.Data.Price[i];
-
-                    if (CmbCategory.SelectedIndex == 0 || date.Month == CmbCategory.SelectedIndex)
+                    if (!Classes.Data.Paid[i])
                     {
-                        if (!Classes.Data.Paid[i]) paid = Properties.Resources.Unpaid;
-                        else spent += price;
+                        var date = Classes.Data.Date[i];
+                        var expense = Classes.Data.Expense[i];
+                        var payment = Classes.Data.Payment[i];
+                        var comments = Classes.Data.Comments[i];
+                        var price = Classes.Data.Price[i];
 
-                        DgvSpending.Rows.Add(paid, i, date.ToString("dd/MM/yyyy"), expense, payment, comments, "R$ " + string.Format("{0:#,##0.00}", price));
+                        if (CmbCategory.SelectedIndex == 0 || date.Month == CmbCategory.SelectedIndex) DgvSpending.Rows.Add(null, i, date.ToString("dd/MM/yyyy"), expense, payment, comments, "R$ " + string.Format("{0:#,##0.00}", price));
+                    }
+                }
+
+                for (int i = 0; i < Classes.Data.Id.Length; i++)
+                {
+                    if (Classes.Data.Paid[i])
+                    {
+                        var paid = Properties.Resources.Paid;
+                        var date = Classes.Data.Date[i];
+                        var expense = Classes.Data.Expense[i];
+                        var payment = Classes.Data.Payment[i];
+                        var comments = Classes.Data.Comments[i];
+                        var price = Classes.Data.Price[i];
+
+                        if (CmbCategory.SelectedIndex == 0 || date.Month == CmbCategory.SelectedIndex)
+                        {
+                            spent += price;
+                            DgvSpending.Rows.Add(paid, i, date.ToString("dd/MM/yyyy"), expense, payment, comments, "R$ " + string.Format("{0:#,##0.00}", price));
+                        }
                     }
                 }
             }
 
             TxtSpent.Text = "R$ " + string.Format("{0:#,##0.00}", spent);
             DgvSpending.ClearSelection();
+        }
+
+        private void DgvSpending_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DgvSpending.ClearSelection();
+
+            // Implementar funções de acertar/desacertar, atualizar e remover gasto, ao clique.
         }
 
         private void CmbCategory_SelectedIndexChanged(object sender, EventArgs e)

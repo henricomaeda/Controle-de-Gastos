@@ -107,6 +107,7 @@
             // 
             this.DtpDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.DtpDate.CustomFormat = "";
             this.DtpDate.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpDate.Location = new System.Drawing.Point(23, 149);
             this.DtpDate.Name = "DtpDate";
@@ -298,6 +299,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 634);
+            this.Controls.Add(this.DtpDate);
             this.Controls.Add(this.LblRequired_02);
             this.Controls.Add(this.LblRequired_01);
             this.Controls.Add(this.LblRequired_00);
@@ -313,7 +315,6 @@
             this.Controls.Add(this.TxtPayment);
             this.Controls.Add(this.TxtExpense);
             this.Controls.Add(this.PicLogo);
-            this.Controls.Add(this.DtpDate);
             this.Controls.Add(this.BtnReturn);
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.BtnCreate);
@@ -333,7 +334,6 @@
         private System.Windows.Forms.Button BtnReturn;
         private System.Windows.Forms.Button BtnUpdate;
         private System.Windows.Forms.Button BtnCreate;
-        private System.Windows.Forms.DateTimePicker DtpDate;
         private System.Windows.Forms.PictureBox PicLogo;
         private System.Windows.Forms.TextBox TxtExpense;
         private System.Windows.Forms.TextBox TxtPayment;
@@ -349,5 +349,6 @@
         private System.Windows.Forms.Label LblRequired_00;
         private System.Windows.Forms.Label LblRequired_01;
         private System.Windows.Forms.Label LblRequired_02;
+        private System.Windows.Forms.DateTimePicker DtpDate;
     }
 }
