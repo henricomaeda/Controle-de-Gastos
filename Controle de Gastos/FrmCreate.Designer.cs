@@ -95,7 +95,7 @@
             this.BtnCreate.Image = global::Controle_de_Gastos.Properties.Resources.Add;
             this.BtnCreate.Location = new System.Drawing.Point(446, 550);
             this.BtnCreate.Name = "BtnCreate";
-            this.BtnCreate.Size = new System.Drawing.Size(247, 63);
+            this.BtnCreate.Size = new System.Drawing.Size(265, 63);
             this.BtnCreate.TabIndex = 7;
             this.BtnCreate.Text = "ADICIONAR";
             this.BtnCreate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -110,7 +110,7 @@
             this.DtpDate.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpDate.Location = new System.Drawing.Point(23, 149);
             this.DtpDate.Name = "DtpDate";
-            this.DtpDate.Size = new System.Drawing.Size(670, 26);
+            this.DtpDate.Size = new System.Drawing.Size(688, 26);
             this.DtpDate.TabIndex = 10;
             // 
             // PicLogo
@@ -121,7 +121,7 @@
             this.PicLogo.Image = global::Controle_de_Gastos.Properties.Resources.Logo;
             this.PicLogo.Location = new System.Drawing.Point(23, 21);
             this.PicLogo.Name = "PicLogo";
-            this.PicLogo.Size = new System.Drawing.Size(670, 94);
+            this.PicLogo.Size = new System.Drawing.Size(688, 94);
             this.PicLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PicLogo.TabIndex = 11;
             this.PicLogo.TabStop = false;
@@ -133,7 +133,7 @@
             this.TxtExpense.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtExpense.Location = new System.Drawing.Point(23, 210);
             this.TxtExpense.Name = "TxtExpense";
-            this.TxtExpense.Size = new System.Drawing.Size(670, 26);
+            this.TxtExpense.Size = new System.Drawing.Size(688, 26);
             this.TxtExpense.TabIndex = 12;
             // 
             // TxtPayment
@@ -143,7 +143,7 @@
             this.TxtPayment.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPayment.Location = new System.Drawing.Point(23, 268);
             this.TxtPayment.Name = "TxtPayment";
-            this.TxtPayment.Size = new System.Drawing.Size(670, 26);
+            this.TxtPayment.Size = new System.Drawing.Size(688, 26);
             this.TxtPayment.TabIndex = 13;
             // 
             // TxtComments
@@ -155,7 +155,7 @@
             this.TxtComments.Location = new System.Drawing.Point(23, 328);
             this.TxtComments.Multiline = true;
             this.TxtComments.Name = "TxtComments";
-            this.TxtComments.Size = new System.Drawing.Size(670, 82);
+            this.TxtComments.Size = new System.Drawing.Size(688, 82);
             this.TxtComments.TabIndex = 14;
             // 
             // TxtBalance
@@ -165,7 +165,7 @@
             this.TxtBalance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtBalance.Location = new System.Drawing.Point(23, 446);
             this.TxtBalance.Name = "TxtBalance";
-            this.TxtBalance.Size = new System.Drawing.Size(670, 26);
+            this.TxtBalance.Size = new System.Drawing.Size(688, 26);
             this.TxtBalance.TabIndex = 15;
             // 
             // RdoPaid
@@ -175,7 +175,7 @@
             this.RdoPaid.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RdoPaid.Location = new System.Drawing.Point(23, 488);
             this.RdoPaid.Name = "RdoPaid";
-            this.RdoPaid.Size = new System.Drawing.Size(670, 24);
+            this.RdoPaid.Size = new System.Drawing.Size(688, 24);
             this.RdoPaid.TabIndex = 16;
             this.RdoPaid.TabStop = true;
             this.RdoPaid.Text = "A despesa acima, no momento, está paga?";
@@ -237,21 +237,21 @@
             this.LblBalance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblBalance.Location = new System.Drawing.Point(20, 425);
             this.LblBalance.Name = "LblBalance";
-            this.LblBalance.Size = new System.Drawing.Size(48, 19);
+            this.LblBalance.Size = new System.Drawing.Size(54, 19);
             this.LblBalance.TabIndex = 21;
-            this.LblBalance.Text = "Valor";
+            this.LblBalance.Text = "Preço";
             // 
             // LblPaid
             // 
             this.LblPaid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LblPaid.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPaid.ForeColor = System.Drawing.Color.Red;
+            this.LblPaid.ForeColor = System.Drawing.Color.IndianRed;
             this.LblPaid.Location = new System.Drawing.Point(20, 515);
             this.LblPaid.Name = "LblPaid";
-            this.LblPaid.Size = new System.Drawing.Size(673, 18);
+            this.LblPaid.Size = new System.Drawing.Size(691, 18);
             this.LblPaid.TabIndex = 22;
-            this.LblPaid.Text = "Caso o botão de seleção esteja marcado, o valor inserido acima será removido do s" +
+            this.LblPaid.Text = "Caso o botão de seleção esteja marcado, o preço inserido acima será removido do s" +
     "eu \"saldo\".";
             // 
             // LblRequired_00
@@ -261,7 +261,7 @@
             this.LblRequired_00.AutoSize = true;
             this.LblRequired_00.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblRequired_00.ForeColor = System.Drawing.Color.Red;
-            this.LblRequired_00.Location = new System.Drawing.Point(70, 129);
+            this.LblRequired_00.Location = new System.Drawing.Point(59, 128);
             this.LblRequired_00.Name = "LblRequired_00";
             this.LblRequired_00.Size = new System.Drawing.Size(15, 19);
             this.LblRequired_00.TabIndex = 23;
@@ -274,7 +274,7 @@
             this.LblRequired_01.AutoSize = true;
             this.LblRequired_01.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblRequired_01.ForeColor = System.Drawing.Color.Red;
-            this.LblRequired_01.Location = new System.Drawing.Point(206, 189);
+            this.LblRequired_01.Location = new System.Drawing.Point(195, 188);
             this.LblRequired_01.Name = "LblRequired_01";
             this.LblRequired_01.Size = new System.Drawing.Size(15, 19);
             this.LblRequired_01.TabIndex = 24;
@@ -287,7 +287,7 @@
             this.LblRequired_02.AutoSize = true;
             this.LblRequired_02.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblRequired_02.ForeColor = System.Drawing.Color.Red;
-            this.LblRequired_02.Location = new System.Drawing.Point(74, 426);
+            this.LblRequired_02.Location = new System.Drawing.Point(70, 425);
             this.LblRequired_02.Name = "LblRequired_02";
             this.LblRequired_02.Size = new System.Drawing.Size(15, 19);
             this.LblRequired_02.TabIndex = 25;
@@ -297,7 +297,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 634);
+            this.ClientSize = new System.Drawing.Size(736, 634);
             this.Controls.Add(this.LblRequired_02);
             this.Controls.Add(this.LblRequired_01);
             this.Controls.Add(this.LblRequired_00);

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Controle_de_Gastos
@@ -31,8 +25,9 @@ namespace Controle_de_Gastos
 
                 TxtBalance.Enabled = false;
                 RdoPaid.Enabled = false;
-                BtnCreate.Enabled = false;
                 BtnUpdate.Enabled = true;
+                BtnCreate.Enabled = false;
+                BtnCreate.BackColor = Color.Gray;
             }
 
             PicLogo.Select();
@@ -120,14 +115,30 @@ namespace Controle_de_Gastos
             }
             else
             {
-                if (sender == BtnCreate) t = Classes.Data.Create(paid, date, expense, payment, comments, price);
-                else if (sender == BtnUpdate) t = Classes.Data.Update(paid, date, expense, payment, comments, price);
+                DialogResult dr = DialogResult.No;
 
-                if (t != string.Empty) i = MessageBoxIcon.Information;
-                MessageBox.Show(t, c, b, i);
+                if (paid && Classes.Data.Balance >= 0 && price > Classes.Data.Balance)
+                {
+                    var text = "Você tem certeza que deseja prosseguir?\nSeu saldo atual se tornará negativo.\n\nSaldo atual: " + string.Format("{0:#,##0.00}", Classes.Data.Balance) + "\nPreço: R$ " + string.Format("{0:#,##0.00}", price);
+                    var caption = string.Empty;
+                    var buttons = MessageBoxButtons.YesNo;
+                    var icon = MessageBoxIcon.Warning;
 
-                Classes.Data.SelectedId = -1;
-                BtnReturn_Click(sender, e);
+                    dr = MessageBox.Show(text, caption, buttons, icon);
+                }
+                else dr = DialogResult.Yes;
+
+                if (dr == DialogResult.Yes)
+                {
+                    if (sender == BtnCreate) t = Classes.Data.Create(paid, date, expense, payment, comments, price);
+                    else if (sender == BtnUpdate) t = Classes.Data.Update(paid, date, expense, payment, comments, price);
+
+                    if (t != string.Empty) i = MessageBoxIcon.Information;
+                    MessageBox.Show(t, c, b, i);
+
+                    Classes.Data.SelectedId = -1;
+                    BtnReturn_Click(sender, e);
+                }
             }
         }
 

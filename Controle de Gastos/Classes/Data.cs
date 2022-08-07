@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controle_de_Gastos.Classes
 {
@@ -98,7 +95,8 @@ namespace Controle_de_Gastos.Classes
                         priceList.Add(Price[i]);
                     }
                 }
-                else idList.Add(idList.Count);
+
+                idList.Add(idList.Count);
                 paidList.Add(paid);
                 dateList.Add(d);
                 expenseList.Add(e);
@@ -114,7 +112,12 @@ namespace Controle_de_Gastos.Classes
                 Comments = commentsList.ToArray();
                 Price = priceList.ToArray();
 
-                return "Despesa criada com sucesso!";
+                var oldBalance = "R$ " + string.Format("{0:#,##0.00}", balance);
+
+                if (paid) balance -= price;
+                var currentBalance = "R$ " + string.Format("{0:#,##0.00}", balance);
+
+                return "Despesa criada com sucesso!\n\nSaldo anterior: " + oldBalance + "\nSaldo atual: " + currentBalance;
             }
             catch (Exception exception)
             {
