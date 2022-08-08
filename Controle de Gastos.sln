@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controle de Gastos", "Controle de Gastos\Controle de Gastos.csproj", "{A947099C-B21B-42E4-8CB8-772064E00519}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador", "Instalador\Instalador.vdproj", "{A901829C-9B89-474F-88BC-FAC7BCAAF2EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{A947099C-B21B-42E4-8CB8-772064E00519}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A947099C-B21B-42E4-8CB8-772064E00519}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A947099C-B21B-42E4-8CB8-772064E00519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A901829C-9B89-474F-88BC-FAC7BCAAF2EB}.Debug|Any CPU.ActiveCfg = Debug
+		{A901829C-9B89-474F-88BC-FAC7BCAAF2EB}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
