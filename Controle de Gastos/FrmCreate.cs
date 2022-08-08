@@ -23,8 +23,6 @@ namespace Controle_de_Gastos
                 TxtComments.Text = Classes.Data.Comments[i];
                 price = Classes.Data.Price[i];
 
-                TxtBalance.Enabled = false;
-                RdoPaid.Enabled = false;
                 BtnUpdate.Enabled = true;
                 BtnCreate.Enabled = false;
                 BtnCreate.BackColor = Color.Gray;
@@ -53,6 +51,7 @@ namespace Controle_de_Gastos
         {
             try
             {
+                TxtBalance.Text = string.Format("{0:0.00}", double.Parse(TxtBalance.Text));
                 price = double.Parse(TxtBalance.Text);
             }
             catch (Exception ex)

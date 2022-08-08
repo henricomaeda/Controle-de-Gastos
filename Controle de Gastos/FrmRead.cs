@@ -40,7 +40,7 @@ namespace Controle_de_Gastos
                         var comments = Classes.Data.Comments[i];
                         var price = Classes.Data.Price[i];
 
-                        if (CmbCategory.SelectedIndex == 0 || date.Month == CmbCategory.SelectedIndex) DgvSpending.Rows.Add(null, i, date.ToString("dd/MM/yyyy"), expense, payment, comments, "R$ " + string.Format("{0:#,##0.00}", price));
+                        if (CmbCategory.SelectedIndex == 0 || date.Month == CmbCategory.SelectedIndex) DgvSpending.Rows.Add(null, i, date.ToString("dd/MM/yyyy"), expense, payment, comments, "R$ " + string.Format("{0:#,##0.00}", price), Properties.Resources.Change, Properties.Resources.Delete);
                     }
                 }
 
@@ -58,7 +58,7 @@ namespace Controle_de_Gastos
                         if (CmbCategory.SelectedIndex == 0 || date.Month == CmbCategory.SelectedIndex)
                         {
                             spent += price;
-                            DgvSpending.Rows.Add(paid, i, date.ToString("dd/MM/yyyy"), expense, payment, comments, "R$ " + string.Format("{0:#,##0.00}", price));
+                            DgvSpending.Rows.Add(paid, i, date.ToString("dd/MM/yyyy"), expense, payment, comments, "R$ " + string.Format("{0:#,##0.00}", price, null ,null));
                         }
                     }
                 }
@@ -70,9 +70,99 @@ namespace Controle_de_Gastos
 
         private void DgvSpending_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DgvSpending.ClearSelection();
+            var r = e.RowIndex;
+            if (r >= 0)
+            {
+                var c = e.ColumnIndex;
+                var id = int.Parse(DgvSpending.Rows[r].Cells[1].Value.ToString());
 
-            // Implementar funções de acertar/desacertar, atualizar e remover gasto, ao clique.
+                if (c == 0)
+                {
+                    if (Classes.Data.Paid[id])
+                    {
+                        Classes.Data.Balance += Classes.Data.Price[id];
+                        Classes.Data.Paid[id] = false;
+                    }
+                    else
+                    {
+                        var d = DialogResult.Yes;
+                        var price = Classes.Data.Price[id];
+                        var balance = Classes.Data.Balance;
+
+                        if (balance >= 0 && price > balance)
+                        {
+                            var t = "Você tem certeza que deseja prosseguir?\nSeu saldo atual se tornará negativo.\n\nSaldo atual: " + string.Format("{0:#,##0.00}", balance) + "\nPreço: R$ " + string.Format("{0:#,##0.00}", price); ;
+                            var caption = string.Empty;
+                            var b = MessageBoxButtons.YesNo;
+                            var i = MessageBoxIcon.Warning;
+
+                            d = MessageBox.Show(t, caption, b, i);
+                        }
+
+                        if (d == DialogResult.Yes)
+                        {
+                            Classes.Data.Balance -= Classes.Data.Price[id];
+                            Classes.Data.Paid[id] = true;
+                        }
+                    }
+                }
+                else if ((c == 7 || c == 8) && Classes.Data.Paid[id])
+                {
+                    var t = "Para alterar ou remover a despesa, aperte no ícone de pago.";
+                    var caption = string.Empty;
+                    var b = MessageBoxButtons.OK;
+                    var i = MessageBoxIcon.Warning;
+
+                    MessageBox.Show(t, caption, b, i);
+                }
+                else if (c == 7)
+                {
+                    Classes.Data.SelectedId = id;
+
+                    FrmCreate frmCreate = new FrmCreate();
+                    frmCreate.ShowDialog();
+
+                    Classes.Data.SelectedId = -1;
+                }
+                else if (c == 8)
+                {
+                    var t = "Você tem certeza que deseja remover a despesa?";
+                    var caption = string.Empty;
+                    var b = MessageBoxButtons.YesNo;
+                    var i = MessageBoxIcon.Warning;
+
+                    DialogResult d = MessageBox.Show(t, caption, b, i);
+                    if (d == DialogResult.Yes)
+                    {
+                        Classes.Data.SelectedId = id;
+                        Classes.Data.Delete();
+                        Classes.Data.SelectedId = -1;
+                    }
+                }
+                else
+                {
+                    var date = Classes.Data.Date[id].ToString("dd/MMMM/yyyy");
+                    var price = Classes.Data.Price[id];
+                    var expense = Classes.Data.Expense[id];
+                    var payment = Classes.Data.Payment[id];
+                    var comments = Classes.Data.Comments[id];
+
+                    var translatedPaid = "Não acertado";
+                    if (Classes.Data.Paid[id]) translatedPaid = "Acertado";
+
+                    var t = "Data: " + date + "\nPreço: R$ " + string.Format("{0:#,##0.00}", price) + "\n\nDescrição: " + expense + "\nForma de pagamento: " + payment + "\nObservações: " + comments + "\n\nSituação: " + translatedPaid;
+                    var caption = string.Empty;
+                    var b = MessageBoxButtons.OK;
+                    var i = MessageBoxIcon.Information;
+
+                    MessageBox.Show(t, caption, b, i);
+                }
+            }
+            
+            DgvSpending_Load();
+            DgvSpending.ClearSelection();
+            TxtBalance_GotFocus(sender, e);
+            TxtBalance_LostFocus(sender, e);
         }
 
         private void CmbCategory_SelectedIndexChanged(object sender, EventArgs e)

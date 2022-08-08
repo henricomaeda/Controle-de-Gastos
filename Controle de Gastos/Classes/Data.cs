@@ -137,8 +137,13 @@ namespace Controle_de_Gastos.Classes
                 Comments[SelectedId] = c;
                 Price[SelectedId] = price;
 
+                var oldBalance = "R$ " + string.Format("{0:#,##0.00}", balance);
+
+                if (paid) balance -= price;
+                var currentBalance = "R$ " + string.Format("{0:#,##0.00}", balance);
+
                 File.Save();
-                return "Despesa atualizada com sucesso!";
+                return "Despesa atualizada com sucesso!\n\nSaldo anterior: " + oldBalance + "\nSaldo atual: " + currentBalance;
             }
             catch (Exception exception)
             {

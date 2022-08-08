@@ -183,6 +183,26 @@ namespace Controle_de_Gastos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Unchange {
+            get {
+                object obj = ResourceManager.GetObject("Unchange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Undelete {
+            get {
+                object obj = ResourceManager.GetObject("Undelete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Unpaid {
             get {
                 object obj = ResourceManager.GetObject("Unpaid", resourceCulture);
