@@ -184,12 +184,16 @@ namespace Controle_de_Gastos
             }
             catch (Exception ex)
             {
-                var t = "ERRO: " + ex.Message;
-                var c = "";
-                var b = MessageBoxButtons.OK;
-                var i = MessageBoxIcon.Error;
+                if (!string.IsNullOrWhiteSpace(TxtBalance.Text))
+                {
+                    var t = "ERRO: " + ex.Message;
+                    var c = "";
+                    var b = MessageBoxButtons.OK;
+                    var i = MessageBoxIcon.Error;
 
-                MessageBox.Show(t, c, b, i);
+                    MessageBox.Show(t, c, b, i);
+                }
+
                 TxtBalance.Text = "R$ " + string.Format("{0:#,##0.00}", Classes.Data.Balance);
             }
 

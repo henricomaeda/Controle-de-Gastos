@@ -70,7 +70,7 @@ namespace Controle_de_Gastos.Classes
             set { price = value; }
         }
 
-        public static string Create(bool paid, DateTime d, string e, string p, string c, double price)
+        public static string Create(int times, bool paid, DateTime d, string e, string p, string c, double price)
         {
             try
             {
@@ -95,14 +95,16 @@ namespace Controle_de_Gastos.Classes
                         priceList.Add(Price[i]);
                     }
                 }
-
-                idList.Add(idList.Count);
-                paidList.Add(paid);
-                dateList.Add(d);
-                expenseList.Add(e);
-                paymentList.Add(p);
-                commentsList.Add(c);
-                priceList.Add(price);
+                for (int i = 0; i < times; i++)
+                {
+                    idList.Add(idList.Count);
+                    paidList.Add(paid);
+                    dateList.Add(d.AddMonths(i));
+                    expenseList.Add(e);
+                    paymentList.Add(p);
+                    commentsList.Add(c);
+                    priceList.Add(price);
+                }
 
                 Id = idList.ToArray();
                 Paid = paidList.ToArray();

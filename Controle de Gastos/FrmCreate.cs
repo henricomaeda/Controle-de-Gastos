@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace Controle_de_Gastos
@@ -7,7 +9,7 @@ namespace Controle_de_Gastos
     public partial class FrmCreate : Form
     {
         private double price = 0;
-        private readonly string placeholder = "Exemplos: conta de luz, lâmpada, TV etc.";
+        private readonly string placeholder = "Exemplos: conta de luz, lâmpada ou TV.";
 
         public FrmCreate()
         {
@@ -16,16 +18,16 @@ namespace Controle_de_Gastos
 
             if (i != -1)
             {
-                if (Classes.Data.Paid[i]) RdoPaid.Checked = true;
                 DtpDate.Value = Classes.Data.Date[i];
                 TxtExpense.Text = Classes.Data.Expense[i];
-                TxtPayment.Text = Classes.Data.Payment[i];
-                TxtComments.Text = Classes.Data.Comments[i];
+                if (Classes.Data.Payment[i] != "Nenhum") TxtPayment.Text = Classes.Data.Payment[i];
+                if (Classes.Data.Comments[i] != "Nenhuma") TxtComments.Text = Classes.Data.Comments[i];
                 price = Classes.Data.Price[i];
 
                 BtnUpdate.Enabled = true;
                 BtnCreate.Enabled = false;
                 BtnCreate.BackColor = Color.Gray;
+                NudDuplicate.Enabled = false;
             }
 
             PicLogo.Select();
@@ -56,12 +58,15 @@ namespace Controle_de_Gastos
             }
             catch (Exception ex)
             {
-                var t = "ERRO: " + ex.Message;
-                var c = "";
-                var b = MessageBoxButtons.OK;
-                var i = MessageBoxIcon.Error;
+                if (!string.IsNullOrWhiteSpace(TxtBalance.Text))
+                {
+                    var t = "ERRO: " + ex.Message;
+                    var c = "";
+                    var b = MessageBoxButtons.OK;
+                    var i = MessageBoxIcon.Error;
 
-                MessageBox.Show(t, c, b, i);
+                    MessageBox.Show(t, c, b, i);
+                }
             }
 
             TxtBalance.Text = "R$ " + string.Format("{0:#,##0.00}", price);
@@ -85,9 +90,16 @@ namespace Controle_de_Gastos
             }
         }
 
+        private void CmbSuggestion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var _suggestion = CmbSuggestion.Text;
+            CmbSuggestion.SelectedIndex = -1;
+            TxtPayment.Text = _suggestion;
+        }
+
         private void BtnCreateAndUpdate_Click(object sender, EventArgs e)
         {
-            var paid = RdoPaid.Checked;
+            var paid = false;
             var date = DtpDate.Value;
             var expense = TxtExpense.Text;
             var payment = TxtPayment.Text;
@@ -107,20 +119,17 @@ namespace Controle_de_Gastos
                 t = "Por favor, preencha o campo de descrição da despesa.";
                 MessageBox.Show(t, c, b, i);
             }
-            else if (price <= 0.00)
+            else if (price < 0.00)
             {
-                t = "O preço do produto ou serviço deve ser maior que R$ 0,00.";
+                t = "O preço do produto ou serviço deve ser positivo.";
                 MessageBox.Show(t, c, b, i);
             }
             else
             {
                 var subtitle = "Você deseja adicionar a seguinte despesa?";
-                var translatedPaid = "Não acertado";
-
                 if (sender == BtnUpdate) subtitle = "Você deseja atualizar para a seguinte despesa?";
-                if (paid) translatedPaid = "Acertado";
 
-                var text = subtitle + "\n\nData: " + date.ToString("dd/MMMM/yyyy") + "\nPreço: R$ " + string.Format("{0:#,##0.00}", price) + "\n\nDescrição: " + expense + "\nForma de pagamento: " + payment + "\nObservações: " + comments + "\n\nSituação: " + translatedPaid;
+                var text = subtitle + "\n\nData: " + date.ToString("dd/MMMM/yyyy") + "\nPreço: R$ " + string.Format("{0:#,##0.00}", price) + "\n\nDescrição: " + expense + "\nForma de pagamento: " + payment + "\nObservações: " + comments + "\n\nSituação: Não acertado";
                 var caption = string.Empty;
                 var buttons = MessageBoxButtons.YesNo;
                 var icon = MessageBoxIcon.Question;
@@ -141,7 +150,7 @@ namespace Controle_de_Gastos
 
                     if (dr == DialogResult.Yes)
                     {
-                        if (sender == BtnCreate) t = Classes.Data.Create(paid, date, expense, payment, comments, price);
+                        if (sender == BtnCreate) t = Classes.Data.Create(int.Parse(NudDuplicate.Value.ToString()), paid, date, expense, payment, comments, price);
                         else if (sender == BtnUpdate) t = Classes.Data.Update(paid, date, expense, payment, comments, price);
 
                         if (t != string.Empty) i = MessageBoxIcon.Information;
