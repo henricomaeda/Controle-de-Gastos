@@ -20,7 +20,7 @@ namespace Controle_de_Gastos
             {
                 DtpDate.Value = Classes.Data.Date[i];
                 TxtExpense.Text = Classes.Data.Expense[i];
-                if (Classes.Data.Payment[i] != "Nenhum") TxtPayment.Text = Classes.Data.Payment[i];
+                if (Classes.Data.Payment[i] != "Nenhum") CmbPayment.Text = Classes.Data.Payment[i];
                 if (Classes.Data.Comments[i] != "Nenhuma") TxtComments.Text = Classes.Data.Comments[i];
                 price = Classes.Data.Price[i];
 
@@ -90,19 +90,12 @@ namespace Controle_de_Gastos
             }
         }
 
-        private void CmbSuggestion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var _suggestion = CmbSuggestion.Text;
-            CmbSuggestion.SelectedIndex = -1;
-            TxtPayment.Text = _suggestion;
-        }
-
         private void BtnCreateAndUpdate_Click(object sender, EventArgs e)
         {
             var paid = false;
             var date = DtpDate.Value;
             var expense = TxtExpense.Text;
-            var payment = TxtPayment.Text;
+            var payment = CmbPayment.Text;
             var comments = TxtComments.Text;
 
             if (string.IsNullOrWhiteSpace(payment)) payment = "Nenhum";

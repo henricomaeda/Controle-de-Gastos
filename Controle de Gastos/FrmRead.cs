@@ -34,13 +34,16 @@ namespace Controle_de_Gastos
                 {
                     if (!Classes.Data.Paid[i])
                     {
-                        var date = Classes.Data.Date[i];
-                        var expense = Classes.Data.Expense[i];
-                        var payment = Classes.Data.Payment[i];
-                        var comments = Classes.Data.Comments[i];
-                        var price = Classes.Data.Price[i];
+                        if (Classes.Data.Date[i].Year == DateTime.Now.Year)
+                        {
+                            var date = Classes.Data.Date[i];
+                            var expense = Classes.Data.Expense[i];
+                            var payment = Classes.Data.Payment[i];
+                            var comments = Classes.Data.Comments[i];
+                            var price = Classes.Data.Price[i];
 
-                        if (CmbCategory.SelectedIndex == 0 || date.Month == CmbCategory.SelectedIndex) DgvSpending.Rows.Add(null, i, date.ToString("dd/MM/yyyy"), expense, payment, comments, "R$ " + string.Format("{0:#,##0.00}", price), Properties.Resources.Change, Properties.Resources.Delete);
+                            if (CmbCategory.SelectedIndex == 0 || date.Month == CmbCategory.SelectedIndex) DgvSpending.Rows.Add(null, i, date.ToString("dd/MM/yyyy"), expense, payment, comments, "R$ " + string.Format("{0:#,##0.00}", price), Properties.Resources.Change, Properties.Resources.Delete);
+                        }
                     }
                 }
 
@@ -48,17 +51,20 @@ namespace Controle_de_Gastos
                 {
                     if (Classes.Data.Paid[i])
                     {
-                        var paid = Properties.Resources.Paid;
-                        var date = Classes.Data.Date[i];
-                        var expense = Classes.Data.Expense[i];
-                        var payment = Classes.Data.Payment[i];
-                        var comments = Classes.Data.Comments[i];
-                        var price = Classes.Data.Price[i];
-
-                        if (CmbCategory.SelectedIndex == 0 || date.Month == CmbCategory.SelectedIndex)
+                        if (Classes.Data.Date[i].Year == DateTime.Now.Year)
                         {
-                            spent += price;
-                            DgvSpending.Rows.Add(paid, i, date.ToString("dd/MM/yyyy"), expense, payment, comments, "R$ " + string.Format("{0:#,##0.00}", price, null ,null));
+                            var paid = Properties.Resources.Paid;
+                            var date = Classes.Data.Date[i];
+                            var expense = Classes.Data.Expense[i];
+                            var payment = Classes.Data.Payment[i];
+                            var comments = Classes.Data.Comments[i];
+                            var price = Classes.Data.Price[i];
+
+                            if (CmbCategory.SelectedIndex == 0 || date.Month == CmbCategory.SelectedIndex)
+                            {
+                                spent += price;
+                                DgvSpending.Rows.Add(paid, i, date.ToString("dd/MM/yyyy"), expense, payment, comments, "R$ " + string.Format("{0:#,##0.00}", price, null, null));
+                            }
                         }
                     }
                 }

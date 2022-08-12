@@ -35,7 +35,6 @@
             this.DtpDate = new System.Windows.Forms.DateTimePicker();
             this.PicLogo = new System.Windows.Forms.PictureBox();
             this.TxtExpense = new System.Windows.Forms.TextBox();
-            this.TxtPayment = new System.Windows.Forms.TextBox();
             this.TxtComments = new System.Windows.Forms.TextBox();
             this.TxtBalance = new System.Windows.Forms.TextBox();
             this.LblDate = new System.Windows.Forms.Label();
@@ -48,8 +47,7 @@
             this.LblRequired_02 = new System.Windows.Forms.Label();
             this.NudDuplicate = new System.Windows.Forms.NumericUpDown();
             this.LblDuplicate = new System.Windows.Forms.Label();
-            this.CmbSuggestion = new System.Windows.Forms.ComboBox();
-            this.LblSuggestion = new System.Windows.Forms.Label();
+            this.CmbPayment = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudDuplicate)).BeginInit();
             this.SuspendLayout();
@@ -139,16 +137,6 @@
             this.TxtExpense.Name = "TxtExpense";
             this.TxtExpense.Size = new System.Drawing.Size(688, 26);
             this.TxtExpense.TabIndex = 12;
-            // 
-            // TxtPayment
-            // 
-            this.TxtPayment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtPayment.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPayment.Location = new System.Drawing.Point(23, 268);
-            this.TxtPayment.Name = "TxtPayment";
-            this.TxtPayment.Size = new System.Drawing.Size(455, 26);
-            this.TxtPayment.TabIndex = 13;
             // 
             // TxtComments
             // 
@@ -306,13 +294,13 @@
             this.LblDuplicate.TabIndex = 27;
             this.LblDuplicate.Text = "Duplicar conteúdo por mês";
             // 
-            // CmbSuggestion
+            // CmbPayment
             // 
-            this.CmbSuggestion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CmbSuggestion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbSuggestion.Font = new System.Drawing.Font("Arial", 12F);
-            this.CmbSuggestion.FormattingEnabled = true;
-            this.CmbSuggestion.Items.AddRange(new object[] {
+            this.CmbPayment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CmbPayment.Font = new System.Drawing.Font("Arial", 12F);
+            this.CmbPayment.FormattingEnabled = true;
+            this.CmbPayment.Items.AddRange(new object[] {
             "Dinheiro",
             "Cheque",
             "Cartão de Crédito",
@@ -321,30 +309,17 @@
             "PIX",
             "Crediário",
             "Transferência bancária"});
-            this.CmbSuggestion.Location = new System.Drawing.Point(484, 268);
-            this.CmbSuggestion.Name = "CmbSuggestion";
-            this.CmbSuggestion.Size = new System.Drawing.Size(227, 26);
-            this.CmbSuggestion.TabIndex = 28;
-            this.CmbSuggestion.SelectedIndexChanged += new System.EventHandler(this.CmbSuggestion_SelectedIndexChanged);
-            // 
-            // LblSuggestion
-            // 
-            this.LblSuggestion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblSuggestion.AutoSize = true;
-            this.LblSuggestion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblSuggestion.Location = new System.Drawing.Point(620, 247);
-            this.LblSuggestion.Name = "LblSuggestion";
-            this.LblSuggestion.Size = new System.Drawing.Size(91, 19);
-            this.LblSuggestion.TabIndex = 29;
-            this.LblSuggestion.Text = "Sugestões";
+            this.CmbPayment.Location = new System.Drawing.Point(25, 268);
+            this.CmbPayment.Name = "CmbPayment";
+            this.CmbPayment.Size = new System.Drawing.Size(686, 26);
+            this.CmbPayment.TabIndex = 28;
             // 
             // FrmCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 627);
-            this.Controls.Add(this.LblSuggestion);
-            this.Controls.Add(this.CmbSuggestion);
+            this.Controls.Add(this.CmbPayment);
             this.Controls.Add(this.LblDuplicate);
             this.Controls.Add(this.NudDuplicate);
             this.Controls.Add(this.DtpDate);
@@ -358,7 +333,6 @@
             this.Controls.Add(this.LblDate);
             this.Controls.Add(this.TxtBalance);
             this.Controls.Add(this.TxtComments);
-            this.Controls.Add(this.TxtPayment);
             this.Controls.Add(this.TxtExpense);
             this.Controls.Add(this.PicLogo);
             this.Controls.Add(this.BtnReturn);
@@ -383,7 +357,6 @@
         private System.Windows.Forms.Button BtnCreate;
         private System.Windows.Forms.PictureBox PicLogo;
         private System.Windows.Forms.TextBox TxtExpense;
-        private System.Windows.Forms.TextBox TxtPayment;
         private System.Windows.Forms.TextBox TxtComments;
         private System.Windows.Forms.TextBox TxtBalance;
         private System.Windows.Forms.Label LblDate;
@@ -397,7 +370,6 @@
         private System.Windows.Forms.DateTimePicker DtpDate;
         private System.Windows.Forms.NumericUpDown NudDuplicate;
         private System.Windows.Forms.Label LblDuplicate;
-        private System.Windows.Forms.ComboBox CmbSuggestion;
-        private System.Windows.Forms.Label LblSuggestion;
+        private System.Windows.Forms.ComboBox CmbPayment;
     }
 }
