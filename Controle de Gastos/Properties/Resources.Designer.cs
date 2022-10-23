@@ -163,6 +163,16 @@ namespace Controle_de_Gastos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Receipt {
+            get {
+                object obj = ResourceManager.GetObject("Receipt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Return {
             get {
                 object obj = ResourceManager.GetObject("Return", resourceCulture);
@@ -216,6 +226,16 @@ namespace Controle_de_Gastos.Properties {
         internal static System.Drawing.Bitmap Update {
             get {
                 object obj = ResourceManager.GetObject("Update", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpdateReceive {
+            get {
+                object obj = ResourceManager.GetObject("UpdateReceive", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

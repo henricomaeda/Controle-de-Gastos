@@ -7,7 +7,7 @@ namespace Controle_de_Gastos.Classes
     internal class Data
     {
         private static int selectedId = -1;
-        private static double balance = 0;
+        public static double balance = 0;
 
         private static int[] id;
         private static bool[] paid;

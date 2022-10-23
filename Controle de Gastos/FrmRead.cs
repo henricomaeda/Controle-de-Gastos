@@ -23,7 +23,7 @@ namespace Controle_de_Gastos
             TxtBalance.Text = "R$ " + string.Format("{0:#,##0.00}", Classes.Data.Balance);
         }
 
-        private void DgvSpending_Load(int month = 0)
+        private void DgvSpending_Load()
         {
             spent = 0;
             DgvSpending.Rows.Clear();
@@ -173,7 +173,7 @@ namespace Controle_de_Gastos
 
         private void CmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DgvSpending_Load(CmbCategory.SelectedIndex);
+            DgvSpending_Load();
         }
 
         private void TxtBalance_GotFocus(object sender, EventArgs e)

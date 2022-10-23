@@ -1,6 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Xml.Linq;
+using System.Threading;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Controle_de_Gastos.Classes
 {

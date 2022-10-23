@@ -12,14 +12,15 @@ namespace Controle_de_Gastos
             PicLogo.Select();
         }
 
-        private void BtnCreateAndRead_Click(object sender, EventArgs e)
+        private void BtnNavigation_Click(object sender, EventArgs e)
         {
             PicLogo.Select();
             var frm = new Form();
 
             if (sender == BtnCreate) frm = new FrmCreate();
+            else if (sender == BtnReceipt) frm = new FrmReceipt();
             else if (sender == BtnRead) frm = new FrmRead();
-            
+
             frm.ShowDialog();
         }
 
