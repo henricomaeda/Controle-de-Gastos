@@ -1,8 +1,6 @@
 ﻿using Controle_de_Gastos.Classes;
 using System.Windows.Forms;
-using System.IO;
 using System;
-using System.Diagnostics;
 
 namespace Controle_de_Gastos
 {
@@ -18,9 +16,9 @@ namespace Controle_de_Gastos
 
         private void FrmReceipt_Load(object sender, EventArgs e)
         {
-            CmbReceiptDay.SelectedIndex = Receipt.receiptDay;
-            actualBalance = Receipt.balance;
-            ChkReceive.Checked = Receipt.receive;
+            CmbReceiptDay.SelectedIndex = Receipt.receiptDay_01;
+            actualBalance = Receipt.balance_01;
+            ChkReceive.Checked = Receipt.receive_01;
 
             TxtBalance.Text = "R$ " + string.Format("{0:#,##0.00}", actualBalance);
             TxtBalance.GotFocus += new EventHandler(TxtBalance_GotFocus);
@@ -74,8 +72,36 @@ namespace Controle_de_Gastos
 
             if (dr == DialogResult.Yes)
             {
-                if (sender == BtnUpdate) Receipt.UpdateInfo(CmbReceiptDay.SelectedIndex, actualBalance, ChkReceive.Checked);
+                if (sender == BtnUpdate)
+                {
+                    if (TxtPaymentSelected.Text == "Primeiro pagamento.") Receipt.UpdateInfo(CmbReceiptDay.SelectedIndex, actualBalance, ChkReceive.Checked);
+                    else Receipt.UpdateInfo(CmbReceiptDay.SelectedIndex, actualBalance, ChkReceive.Checked, false);
+                }
+
                 Close();
+            }
+        }
+
+        private void BtnPayment_Click(object sender, EventArgs e)
+        {
+            LblPaymentSelected.Select();
+            if (sender == BtnPayment_01)
+            {
+                CmbReceiptDay.SelectedIndex = Receipt.receiptDay_01;
+                actualBalance = Receipt.balance_01;
+                ChkReceive.Checked = Receipt.receive_01;
+
+                TxtPaymentSelected.Text = "Primeiro pagamento.";
+                TxtBalance.Text = "R$ " + string.Format("{0:#,##0.00}", actualBalance);
+            }
+            else
+            {
+                CmbReceiptDay.SelectedIndex = Receipt.receiptDay_02;
+                actualBalance = Receipt.balance_02;
+                ChkReceive.Checked = Receipt.receive_02;
+
+                TxtPaymentSelected.Text = "Segundo pagamento.";
+                TxtBalance.Text = "R$ " + string.Format("{0:#,##0.00}", actualBalance);
             }
         }
     }
